@@ -12,13 +12,10 @@ public class HomePage {
     }
 
     public void abrirPagina() {
-        driver.get("https://www.example.com%22/");
+        driver.get("https://open.spotify.com/");
+        driver.manage().window().maximize();
+
     }
 
-    public boolean seMuestraLogo() {
-        WebElement logoElement = driver.findElement(By.id("logo"));
-        return logoElement.isDisplayed();
-    }
 
-    // Otros métodos de interacción con la página de inicio
 }
