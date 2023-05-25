@@ -29,6 +29,7 @@ public class StepsDefinition {
     @Then("El registro es realizado de forma exitosa")
     public void elRegistroEsRealizadoDeFormaExitosa() {
         
+        
     }
 
     @And("Soy redireccionado a mi homepage en Spotify")
