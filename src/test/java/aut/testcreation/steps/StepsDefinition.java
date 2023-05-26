@@ -1,4 +1,4 @@
-package steps;
+package aut.testcreation.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -6,9 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepsDefinition {
+
     @Given("He accedido a la pagina de Spotify")
     public void heAccedidoALaPaginaDeSpotify() {
-        
+
     }
 
     @And("Selecciono la opcion registrate")
