@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RegisterPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//input[@id='reg_username']")
+    @FindBy(id = "reg_username")
     public WebElement inputName;
 
-    @FindBy(xpath = "//input[@id='reg_email']")
+    @FindBy(id = "reg_email")
     public WebElement inputEmail;
 
-    @FindBy(xpath = "//input[@id='reg_password']")
+    @FindBy(id = "reg_password")
     public WebElement inputPassword;
 
     @FindBy(xpath = "//button[@name='register']")

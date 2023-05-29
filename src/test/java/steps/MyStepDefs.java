@@ -27,17 +27,17 @@ public class MyStepDefs {
     }
 
     @Given("^He accedido a la pagina de paraisokawaii$")
-    public void acceder_a_paraisokawaii() {
+    public void heAccedidoALaPaginaDeParaisokawaii() {
         config.getHomePage().navigateToPage();
     }
 
-    @And("^Seleccionado la opcion acceder$")
-    public void ir_a_registro() {
+    @And("^Selecciono la opcion acceder$")
+    public void seleccionoLaOpcionAcceder() {
         config.getHomePage().pressRegister();
     }
 
     @When("^Completo el formulario de registro$")
-    public void completar_registro() {
+    public void completoElFormularioDeRegistro() {
         config.getRegisterPage().completeForm(
                 "latiamaskawaii",
                 "latiakawaii123@gmail.com",
@@ -45,12 +45,29 @@ public class MyStepDefs {
     }
 
     @And("^Hago clic en boton Registrarse$")
-    public void registrarse() {
-        //config.getRegisterPage().pressRegister();
+    public void hagoClicEnBotonRegistrarse() {
+        config.getRegisterPage().pressRegister();
     }
 
     @Then("^El registro es realizado de forma exitosa$")
-    public void registro_exitoso() {
+    public void elRegistroEsRealizadoDeFormaExitosa() {
+        assertEquals("Cuenta creada", "MI CUENTA", config.getSuccessPage().successTxt());
+    }
+
+    @When("Completo el formulario de ingreso")
+    public void completoElFormularioDeIngreso() {
+        config.getLoginPage().completeLogin(
+                "maialamaskawaii",
+                "MiPdjaviertem3");
+    }
+
+    @And("Hago clic en boton Acceder")
+    public void hagoClicEnBotonAcceder() {
+        config.getLoginPage().pressLogin();
+    }
+
+    @Then("Puedo ver la frase MI CUENTA en pantalla")
+    public void puedoVerLaFraseMICUENTAEnPantalla() {
         assertEquals("Cuenta creada", "MI CUENTA", config.getSuccessPage().successTxt());
     }
 }
