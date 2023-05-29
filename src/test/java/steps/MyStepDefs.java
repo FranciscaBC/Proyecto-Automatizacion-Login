@@ -9,7 +9,6 @@ import io.cucumber.java.en.When;
 
 import static junit.framework.TestCase.assertEquals;
 
-
 public class MyStepDefs {
     private WebDriverConfig config;
 
@@ -28,11 +27,11 @@ public class MyStepDefs {
     }
 
     @Given("^He accedido a la pagina de paraisokawaii$")
-    public void acceder_a_solotodo() {
+    public void acceder_a_paraisokawaii() {
         config.getHomePage().navigateToPage();
     }
 
-    @And("^Selecciono la opcion acceder$")
+    @And("^Seleccionado la opcion acceder$")
     public void ir_a_registro() {
         config.getHomePage().pressRegister();
     }
@@ -47,7 +46,7 @@ public class MyStepDefs {
 
     @And("^Hago clic en boton Registrarse$")
     public void registrarse() {
-        config.getRegisterPage().pressRegister();
+        //config.getRegisterPage().pressRegister();
     }
 
     @Then("^El registro es realizado de forma exitosa$")

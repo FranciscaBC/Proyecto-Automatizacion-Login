@@ -10,9 +10,11 @@ public class SuccessPage {
     private WebDriver driver;
 
     @FindBy(xpath = "//span[contains(text(),'Mi cuenta')]")
-    public WebElement txtSuccess;
+    public WebElement txtMyAccount;
 
-    public String successTxt(){return txtSuccess.getText();}
+    public String successTxt() {
+        return txtMyAccount.getText();
+    }
 
     public SuccessPage(WebDriver driver, WebDriverWait wait) {
         PageFactory.initElements(driver, this);

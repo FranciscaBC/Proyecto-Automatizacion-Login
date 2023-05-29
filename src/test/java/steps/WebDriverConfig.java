@@ -1,18 +1,17 @@
 package steps;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager; //clase que se usa para configurar los controles de los navegadores web en tiempo de ejecución
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import pages.RegisterPage;
 import pages.SuccessPage;
-
 import java.time.Duration;
 
 public class WebDriverConfig {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private WebDriver driver; //interactua con el navegador
+    private WebDriverWait wait; //espera que ocurran ciertas condiciones en el navegador
     private HomePage homePage;
     private RegisterPage registerPage;
     private SuccessPage successPage;
@@ -33,10 +32,11 @@ public class WebDriverConfig {
         return successPage;
     }
 
-    public void setupWebDriver() {
+    public void setupWebDriver() { //Configuracion del navegador web
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Configura una espera implícita de 10 segundos
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Configura una espera implícita de 5 segundos
         homePage = new HomePage(driver, wait);
         registerPage = new RegisterPage(driver, wait);
         successPage = new SuccessPage(driver, wait);

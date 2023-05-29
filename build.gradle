@@ -1,69 +1,49 @@
 plugins {
-    id'java'
+    id 'java' //admite la compilacion y ejecución de java
 }
 
 group = "FranciscaBenavides"
 version = "1.0"
 
 repositories {
-    mavenCentral()
+    mavenCentral() //Se usa el repositorio para obtener dependencias
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+    //Se establece codificacion de caracteres para java (se podria usar para comparar textos en test)
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
+    useJUnitPlatform() //opcion de ejecicion de pruebas
 }
 
-configurations {
+configurations { //permite que las dependencias para cucumber esten disponibles en las pruebas
     cucumberRuntime {
         extendsFrom testImplementation
     }
 }
 
 dependencies {
-    //WebDriver
+    //WebDriverManager
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.3.2'
-    //JUnit
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:5.8.2"
-    testImplementation "org.junit.platform:junit-platform-launcher:1.8.2"
-    testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
-    testImplementation 'org.junit.platform:junit-platform-suite-api:1.8.2'
-    testImplementation "org.junit.vintage:junit-vintage-engine:5.8.2"
-    //Selenium
+
+    //JUnit - Cucumber usa jUnit como motor de pruebas:
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"//API principal de JUnit
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.8.2"//permite ejecutar test varias veces con dif datos
+    testImplementation "org.junit.platform:junit-platform-launcher:1.8.2"//infraestructura para descubrir y ejecutar tests en junit
+    testImplementation 'org.junit.platform:junit-platform-suite-api:1.8.2'//Api que permite ejec suites de test en Junit
+    testImplementation "org.junit.vintage:junit-vintage-engine:5.8.2"//Permite usar pruebas en versiones anteriores
+
+    //Selenium - Incorporamos la biblioteca de selenium
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.9.1'
-    //Cucumber
-    testImplementation "io.cucumber:cucumber-junit:5.0.0"
-    testImplementation "io.cucumber:cucumber-java8:5.0.0"
-    testImplementation "io.cucumber:cucumber-junit-platform-engine:5.0.0"
-    testImplementation "info.cukes:cucumber-java:1.2.6"
-    testImplementation "info.cukes:cucumber-junit:1.2.6"
-    testImplementation "info.cukes:cucumber-core:1.2.6"
-    testImplementation "info.cukes:gherkin:2.12.2"
 
-    // Otras dependencias...
-    testImplementation 'io.cucumber:cucumber-java:6.11.0'
-    testImplementation 'io.cucumber:cucumber-junit:6.11.0'
-    testImplementation 'io.cucumber:cucumber-picocontainer:6.11.0'
-
+    //Cucumber BDD
+    testImplementation 'io.cucumber:cucumber-java:6.11.0'//Clases y anotaciones necesarias para definir steps y scenarios
+    testImplementation 'io.cucumber:cucumber-junit:6.11.0'//integra cucumber con jUnit
+    testImplementation 'io.cucumber:cucumber-picocontainer:6.11.0'//Ayuda a tener las pruebas mas organizadas y facilita la reutilizacion del codigo.
 }
 
-task tagsTest(type: Test) {
-    String itags = System.getProperty("includeTags") ?
-            System.getProperty("includeTags") : 'non-existent'
-    String etags = System.getProperty("excludeTags") ?
-            System.getProperty("excludeTags") : 'non-existent'
-
-    useJUnitPlatform {
-        includeTags itags
-        excludeTags etags
-    }
-}
-
-tasks.test {
+tasks.test { //utiliza el motor jUnit para la ejecución de pruebas
     useJUnitPlatform()
 }
