@@ -1,9 +1,9 @@
 #Autor: Francisca Benavides
 #Fecha: 25-05-2023
 
-Feature: Registro e ingreso en paraisokawaii
+Feature: Cuenta en paraisokawaii
 
-  Como tia de una ninia que gusta de productos con tematica asiatica
+  Como tia de una sobrina que gusta de productos con tematica asiatica
   Quiero tener acceso a una cuenta en su web favorita
   Para poder comprarle regalos sin tener que escribir mis datos nuevamente
 
