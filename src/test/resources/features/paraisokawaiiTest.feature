@@ -20,3 +20,4 @@ Feature: Cuenta en paraisokawaii
     When Completo el formulario de ingreso
     And Hago clic en boton Acceder
     Then Puedo ver la frase MI CUENTA en pantalla
+

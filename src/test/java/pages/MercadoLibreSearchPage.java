@@ -13,6 +13,7 @@ public class MercadoLibreSearchPage {
     public WebElement btnMasTarde;
     @FindBy(xpath = "//h2[@class='ui-search-item__title shops__item-title']")
     public WebElement txtResult;
+
     public void noDarUbicacion(){
         btnMasTarde.click();
     }

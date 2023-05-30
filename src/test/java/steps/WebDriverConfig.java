@@ -17,30 +17,28 @@ public class WebDriverConfig {
     private SuccessPage successPage;
     private MercadoLibreHomePage mercadoLibreHomePage;
     private MercadoLibreSearchPage mercadoLibreSearchPage;
+    private MercadoLibreSuperMercado mercadoLibreSuperMercado;
 
     public WebDriver getDriver() {
         return driver;
     }
-
     public HomePage getHomePage() {
         return homePage;
     }
-
     public RegisterPage getRegisterPage() {
         return registerPage;
     }
-
     public LoginPage getLoginPage() {
         return loginPage;
     }
     public SuccessPage getSuccessPage(){return successPage;}
-
     public MercadoLibreHomePage getMercadoLibreHomePage() {
         return mercadoLibreHomePage;
     }
     public MercadoLibreSearchPage getMercadoLibreSearchPage() {
         return mercadoLibreSearchPage;
     }
+    public MercadoLibreSuperMercado getMercadoLibreSuperMercado(){ return mercadoLibreSuperMercado;}
 
     public void setupWebDriver() {
         WebDriverManager.chromedriver().setup();
@@ -53,11 +51,12 @@ public class WebDriverConfig {
         successPage = new SuccessPage(driver, wait);
         mercadoLibreHomePage = new MercadoLibreHomePage(driver, wait);
         mercadoLibreSearchPage = new MercadoLibreSearchPage(driver, wait);
+        mercadoLibreSuperMercado = new MercadoLibreSuperMercado(driver, wait);
     }
 
     public void closeWebDriver() {
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
         }
     }
 }

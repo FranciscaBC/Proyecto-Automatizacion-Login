@@ -95,4 +95,24 @@ public class MyStepDefs {
         config.getMercadoLibreSearchPage().noDarUbicacion();
         assertEquals("Producto encontrado con exito", arg0, config.getMercadoLibreSearchPage().findTxtResult());
     }
+
+    @When("Me dirijo a la seccion despensa de supermercado")
+    public void meDirijoALaSeccionDespensaDeSupermercado() {
+        config.getMercadoLibreHomePage().goToDespensaSupermercado();
+    }
+
+    @And("Selecciono el filtro de busqueda Cereales y Barras")
+    public void seleccionoElFiltroDeBusquedaCerealesYBarras() {
+        config.getMercadoLibreSuperMercado().goToCereales();
+    }
+
+    @And("Agrego al carro un cereal Corn Flakes")
+    public void agregoAlCarroUnCerealCornFlakes() {
+        config.getMercadoLibreSuperMercado().addCornFlakes();
+    }
+
+    @Then("Debe aparecer la opción de Crear cuenta")
+    public void debeAparecerLaOpciónDeCrearCuenta() {
+        assertEquals("Opción crear cuenta encontrada", "Crear cuenta", config.getMercadoLibreSuperMercado().checkText());
+    }
 }
