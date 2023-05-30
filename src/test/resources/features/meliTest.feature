@@ -15,6 +15,6 @@
 
     Examples:
       | producto  |
-      | Bloqueador solar leblon 1 lt |
-      | Repelex nf aerosol 165 |
-      | Carpa wetland 4 personas |
+      | Bloqueador Solar Leblon 1 Lt |
+      | Repelex Nf Aerosol 165 Ml.|
+      | Carpa Wetland 4 Personas Camping Envio Gratis|

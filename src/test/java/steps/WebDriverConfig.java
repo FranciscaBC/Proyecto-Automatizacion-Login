@@ -46,6 +46,7 @@ public class WebDriverConfig {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Configura una espera implícita de 10 segundos
+        driver.manage().window().maximize();
         homePage = new HomePage(driver, wait);
         registerPage = new RegisterPage(driver, wait);
         loginPage = new LoginPage(driver,wait);

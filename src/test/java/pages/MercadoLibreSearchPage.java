@@ -11,7 +11,7 @@ public class MercadoLibreSearchPage {
 
     @FindBy(xpath = "//button[@class='onboarding-cp-button andes-button andes-button--transparent andes-button--small']")
     public WebElement btnMasTarde;
-    @FindBy(xpath = "//h1[@class='ui-search-breadcrumb__title shops-custom-primary-font']")
+    @FindBy(xpath = "//h2[@class='ui-search-item__title shops__item-title']")
     public WebElement txtResult;
     public void noDarUbicacion(){
         btnMasTarde.click();
