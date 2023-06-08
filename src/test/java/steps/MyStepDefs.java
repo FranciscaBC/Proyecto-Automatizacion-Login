@@ -40,15 +40,12 @@ public class MyStepDefs {
 
     @When("Completo el formulario de registro")
     public void completoElFormularioDeRegistro() {
-        config.getRegisterPage().completeForm(
-                "latiamaskawaii",
-                "latiakawaii123@gmail.com",
-                "MiCONTRAsegura2023");
+        config.getRegisterPage().completeForm("latiamaskawaii", "latiakawaii123@gmail.com", "MiCONTRAsegura2023");
     }
 
     @And("Hago clic en boton Registrarse")
     public void hagoClicEnBotonRegistrarse() {
-        //config.getRegisterPage().pressRegister();
+        config.getRegisterPage().pressRegister();
     }
 
     @Then("El registro es realizado de forma exitosa")
@@ -58,9 +55,7 @@ public class MyStepDefs {
 
     @When("Completo el formulario de ingreso")
     public void completoElFormularioDeIngreso() {
-        config.getLoginPage().completeLogin(
-                "maialamaskawaii",
-                "MiPdjaviertem3");
+        config.getLoginPage().completeLogin("maialamaskawaii", "MiPdjaviertem3");
     }
 
     @And("Hago clic en boton Acceder")
@@ -114,5 +109,10 @@ public class MyStepDefs {
     @Then("Debe aparecer la opción de Crear cuenta")
     public void debeAparecerLaOpciónDeCrearCuenta() {
         assertEquals("Opción crear cuenta encontrada", "Crear cuenta", config.getMercadoLibreSuperMercado().checkText());
+    }
+
+    @Then("Validar ingreso a la cuenta")
+    public void validarIngresoALaCuenta() {
+        config.getSuccessPage().validaIngreso();
     }
 }

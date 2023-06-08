@@ -21,3 +21,7 @@ Feature: Cuenta en paraisokawaii
     And Hago clic en boton Acceder
     Then Puedo ver la frase MI CUENTA en pantalla
 
+  Scenario: Ingreso a mi cuenta paraisokawaii con exito
+    When Completo el formulario de ingreso
+    And Hago clic en boton Acceder
+    Then Validar ingreso a la cuenta
